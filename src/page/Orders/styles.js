@@ -17,11 +17,17 @@ export const Container = styled.div`
     max-width: 26.75rem;
     height: 100vh;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
     background-color: ${({ theme }) => theme.COLORS.Dark[400]};
     overflow-y: hidden;
     
     .section-desktop {
         display: none;
+    }
+
+    .section-mobile {
+      flex-grow: 1;
     }
 
     .button-advance {
@@ -33,8 +39,6 @@ export const Container = styled.div`
 
     > footer {
         max-width: 26.75rem;
-        position: absolute;
-        bottom: 0;
         padding: 2.5rem 1rem;
     }
 
