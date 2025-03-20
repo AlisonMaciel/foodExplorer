@@ -52,6 +52,7 @@ export const Container = styled.div`
         .section-desktop {
             max-width: 69.87rem;
             display: flex;
+            flex-grow: 1;
             gap: 2rem;
             margin: 0 auto;
         }

@@ -109,9 +109,9 @@ export const Container = styled.div`
     }
 
     > footer {
-        position: absolute;
+        position: fixed;
         bottom: 0;
-        margin-top: 3.37rem;
+        margin-top: 2.37rem;
         width: 26.75rem;
         padding: 0 1rem;
     }

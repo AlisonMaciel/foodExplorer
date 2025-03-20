@@ -21,7 +21,7 @@ export const Container = styled.div`
     background-color: ${({theme}) => theme.COLORS.Dark[400]};
 
     >footer {
-        position: absolute;
+        position: fixed;
         bottom: 0;
         max-width: 26.75rem;
     }
