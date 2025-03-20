@@ -18,7 +18,8 @@ export const Container = styled.div`
     height: 100vh;
     margin: 0 auto;
     background-color: ${({ theme }) => theme.COLORS.Dark[400]};
-
+    overflow-y: hidden;
+    
     .section-desktop {
         display: none;
     }
@@ -66,7 +67,7 @@ export const Container = styled.div`
 
 export const Section = styled.div`
     max-width: 100%;
-    height: 50rem;
+    height: 35rem;
     margin: 4.68rem 0rem 1rem 2.18rem;
     overflow-y: auto;
     animation: ${ordersAnimation} 600ms ease-in-out;
