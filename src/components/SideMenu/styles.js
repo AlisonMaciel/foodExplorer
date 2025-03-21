@@ -6,11 +6,27 @@ export const Container = styled.div`
     height: 100vh;
     position: fixed;
     z-index: 1;
-    max-width: 35.41rem;
+    width: 26.66rem;
     transform: translateX(-100%);
     opacity: 0;
     pointer-events: none;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+    @media (min-width: 375px) {
+      width: 31.25rem;
+
+      footer {
+        width: 31.25rem;
+      }
+    }
+
+    @media (min-width: 425px) {
+      width: 35.41rem;
+
+      footer {
+        width: 35.41rem;
+      }
+    }
 
     &[data-menu-is-open="true"] {
         transform: translateX(0);
@@ -81,7 +97,7 @@ export const Container = styled.div`
         height: 77px;
         position: fixed;
         bottom: 0;
-        width: 35.41rem;
+        width: 26.66rem;
         padding: 0;
 
         p {
