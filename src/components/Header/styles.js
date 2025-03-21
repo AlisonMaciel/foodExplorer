@@ -134,7 +134,7 @@ export const Container = styled.header`
                 align-items: center;
                 max-width: 36.31rem;
                 margin: 0 auto;
-                padding: 0;
+                padding: 0.41rem;
             }
 
             .favorites {
@@ -147,7 +147,7 @@ export const Container = styled.header`
                 font-size: 1rem;
                 line-height: 100%;
                 color: ${({theme}) => theme.COLORS.Light[300]};
-                width: 15.15rem;
+                width: 18.15rem;
                 margin-top: 20px;
                 cursor: pointer;
                 display: none;
@@ -200,10 +200,6 @@ export const Container = styled.header`
     .button-header {
       max-width: 12.5rem;
       padding: 10px;
-    }
-
-    .favorites {
-      width: 16.15rem;
     }
   }
 
