@@ -6,19 +6,11 @@ export const Container = styled.div`
     height: 100vh;
     position: fixed;
     z-index: 1;
-    width: 26.66rem;
+    max-width: 35.41rem;
     transform: translateX(-100%);
     opacity: 0;
     pointer-events: none;
     transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-
-    @media (min-width: 375px) {
-      width: 31.25rem;
-    }
-
-    @media (min-width: 425px) {
-      width: 35.41rem;
-    }
 
     &[data-menu-is-open="true"] {
         transform: translateX(0);
