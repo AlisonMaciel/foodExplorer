@@ -139,6 +139,7 @@ export const Container = styled.div`
             position: absolute;
             top: 50%;
             cursor: pointer;
+            color: ${({theme}) => theme.COLORS.Light[100]};
         }
         
         .right {
@@ -147,6 +148,7 @@ export const Container = styled.div`
             top: 50%;
             right: 0;
             cursor: pointer;
+            color: ${({theme}) => theme.COLORS.Light[100]};
         }
         
         @media (min-width: ${BREAK_POINTS.MD}) {
@@ -175,6 +177,10 @@ export const Container = styled.div`
         overflow-x: hidden;
         white-space: nowrap;
         scroll-behavior: smooth;
+
+        svg {
+          color: ${({theme}) => theme.COLORS.Light[100]};
+        }
 
         @media (min-width: ${BREAK_POINTS.XL}) {
             max-width: 70.12rem;

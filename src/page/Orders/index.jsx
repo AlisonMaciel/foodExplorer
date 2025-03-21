@@ -279,7 +279,10 @@ export function Orders() {
                     <Pix data-pix-desktop={pixDesktop}>
                         <div className="payment">
                             <div>
-                                <PaymenBtutton icon={PixLogo} title="PIX" />
+                                <PaymenBtutton 
+                                    icon={PixLogo} 
+                                    title="PIX"
+                                />
                                 <PaymenBtutton
                                     icon={CreditCard}
                                     title="Crédito"

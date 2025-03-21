@@ -75,20 +75,8 @@ export const Container = styled.header`
       border-radius: 50%;
       color: white;
       text-align: center;
-      margin-left: -33px;
+      margin-left: -85px;
       margin-bottom: 20px;
-
-    @media (min-width: 375px) {
-      .quantity {
-        margin-left: -61px;
-      }
-    }
-
-    @media (min-width: 425px) {
-      .quantity {
-        margin-left: -85px;
-      }
-    }
     }
 
     >svg:hover {
@@ -101,7 +89,7 @@ export const Container = styled.header`
 
     .button-header {
       max-width: 12.5rem;
-      padding: 7px;   
+      padding: 3px;   
     }
 
     .signOut {
@@ -180,6 +168,10 @@ export const Container = styled.header`
                 height: 4rem;
                 cursor: pointer;
                 margin-bottom: -15px;
+            }
+
+            .quantity {
+              display: none;
             }
             
         }

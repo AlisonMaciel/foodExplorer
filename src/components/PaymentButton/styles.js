@@ -13,4 +13,10 @@ export const Container = styled.button`
     border: 1px solid ${({theme}) => theme.COLORS.Light[600]};
     border-radius: 8px 8px 0 0;
     background-color: ${({theme}) => theme.COLORS.Dark[800]};
+
+    color: ${({theme}) => theme.COLORS.Light[100]};
+
+    >svg {
+      color: ${({theme}) => theme.COLORS.Light[100]};
+    }
 `;
