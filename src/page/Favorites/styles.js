@@ -23,7 +23,7 @@ export const Container = styled.div`
     >footer {
         position: fixed;
         bottom: 0;
-        max-width: 35.41rem;
+        width: 100%;
     }
 
     .h1-div {
@@ -39,7 +39,6 @@ export const Container = styled.div`
 
       >footer {
         margin-top: 1.5rem;
-        max-width: 100%;
       }
 
       >div {

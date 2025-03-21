@@ -54,7 +54,6 @@ export const Container = styled.div`
             display: flex;
             flex-grow: 1;
             gap: 2rem;
-            margin: 0 auto;
         }
 
         > footer {
@@ -65,6 +64,7 @@ export const Container = styled.div`
     @media (min-width: ${BREAK_POINTS.LG}) {
         .section-desktop {
             gap: 5rem;
+            margin: 0 auto;
         }
     }
 `;

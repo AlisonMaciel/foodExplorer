@@ -114,10 +114,10 @@ export const Container = styled.header`
                 height: 2.33rem;
                 display: flex;
                 flex-direction: column;
-                
+
                 img {
                     margin-top: 11px;
-                    margin-left: 10px;
+                    margin-left: 53px;
                 }
 
                 span {
@@ -134,6 +134,7 @@ export const Container = styled.header`
                 align-items: center;
                 max-width: 36.31rem;
                 margin: 0 auto;
+                padding: 0;
             }
 
             .favorites {
@@ -146,7 +147,7 @@ export const Container = styled.header`
                 font-size: 1rem;
                 line-height: 100%;
                 color: ${({theme}) => theme.COLORS.Light[300]};
-                width: 258px;
+                width: 15.15rem;
                 margin-top: 20px;
                 cursor: pointer;
                 display: none;
@@ -183,7 +184,7 @@ export const Container = styled.header`
             
             .button-header {
                 max-width: 12.5rem;
-                padding: 7px;
+                padding: 3px;
             }
             
             .signOut {
@@ -199,6 +200,10 @@ export const Container = styled.header`
     .button-header {
       max-width: 12.5rem;
       padding: 10px;
+    }
+
+    .favorites {
+      width: 16.15rem;
     }
   }
 
