@@ -22,7 +22,7 @@ export const Container = styled.div`
 
     .details-mobile {
         max-width: 20rem;
-        margin: 3rem 3.5rem 0;
+        margin: 3rem auto;
         animation: ${detailsAnimation} 700ms ease-in-out;
 
         a {
@@ -83,6 +83,10 @@ export const Container = styled.div`
 
             .add-decrease {
                 font-size: 1.3rem;
+                
+                svg {
+                  color: ${({theme}) => theme.COLORS.Light[100]};
+                }
 
                 svg {
                     cursor: pointer;
@@ -112,7 +116,6 @@ export const Container = styled.div`
         position: fixed;
         bottom: 0;
         margin-top: 2.37rem;
-        max-width: 35.41rem;
         padding: 0 1rem;
     }
 

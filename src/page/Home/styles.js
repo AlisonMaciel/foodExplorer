@@ -190,7 +190,7 @@ export const Container = styled.div`
     footer {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         font-weight: 400;
         font-size: 0.75rem;
         line-height: 1rem;

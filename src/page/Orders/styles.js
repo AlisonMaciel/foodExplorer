@@ -38,7 +38,7 @@ export const Container = styled.div`
     }
 
     > footer {
-        max-width: 26.75rem;
+        width: 100%;
         padding: 2.5rem 1rem;
     }
 
@@ -58,7 +58,6 @@ export const Container = styled.div`
         }
 
         > footer {
-            width: 100%;
             padding: 2.5rem 1rem;
         }
     }

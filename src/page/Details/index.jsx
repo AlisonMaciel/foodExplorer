@@ -218,7 +218,7 @@ export function Details() {
                                                 quantity: oneMore
                                             })}
                                         />
-                                      </div>
+                                    </div>
                                 )}
                                 {user.role === USER_ROLE.ADMIN && (
                                     <Button

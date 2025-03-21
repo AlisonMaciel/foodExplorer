@@ -75,7 +75,7 @@ export const Container = styled.header`
       border-radius: 50%;
       color: white;
       text-align: center;
-      margin-left: -85px;
+      margin-left: -80px;
       margin-bottom: 20px;
     }
 
