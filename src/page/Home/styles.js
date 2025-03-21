@@ -14,7 +14,7 @@ const homeAnimation = keyframes`
 `
 
 export const Container = styled.div`
-    max-width: 26.75rem;
+    max-width: 31.25rem;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
