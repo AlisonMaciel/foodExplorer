@@ -14,18 +14,10 @@ export const Container = styled.div`
 
     @media (min-width: 375px) {
       width: 31.25rem;
-
-      footer {
-        width: 31.25rem;
-      }
     }
 
     @media (min-width: 425px) {
       width: 35.41rem;
-
-      footer {
-        width: 35.41rem;
-      }
     }
 
     &[data-menu-is-open="true"] {
@@ -97,7 +89,6 @@ export const Container = styled.div`
         height: 77px;
         position: fixed;
         bottom: 0;
-        width: 26.66rem;
         padding: 0;
 
         p {
