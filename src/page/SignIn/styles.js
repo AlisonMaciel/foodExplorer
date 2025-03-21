@@ -9,7 +9,7 @@ export const Container = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;
-    max-width: 26.75rem;
+    max-width: 35.41rem;
     margin: 0 auto;
     padding: 9.87rem, 1.93rem, 21.18rem, 4.06rem;
     background-color: ${({theme}) => theme.COLORS.Dark[400]};

@@ -84,7 +84,8 @@ export const Container = styled.div`
         width: 1.5rem;
         height: 1.37rem;
         cursor: pointer;
-        
+        color: ${({theme}) => theme.COLORS.Light[100]};
+
         &[data-heart-red="true"] {
             color: ${({theme}) => theme.COLORS.Tints.Tomato[400]}; 
         }

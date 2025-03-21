@@ -15,7 +15,7 @@ const ordersAnimation = keyframes`
 `
 
 export const Container = styled.div`
-    max-width: 26.75rem;
+    max-width: 35.41rem;
     height: 100vh;
     margin: 0 auto;
     background-color: ${({theme}) => theme.COLORS.Dark[400]};
@@ -23,7 +23,7 @@ export const Container = styled.div`
     >footer {
         position: fixed;
         bottom: 0;
-        max-width: 26.75rem;
+        max-width: 35.41rem;
     }
 
     .h1-div {

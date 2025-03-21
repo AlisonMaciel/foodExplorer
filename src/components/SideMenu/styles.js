@@ -6,7 +6,7 @@ export const Container = styled.div`
     height: 100vh;
     position: fixed;
     z-index: 1;
-    width: 26.75rem;
+    max-width: 35.41rem;
     transform: translateX(-100%);
     opacity: 0;
     pointer-events: none;
@@ -73,7 +73,7 @@ export const Container = styled.div`
     >footer {
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         font-weight: 400;
         line-height: 1rem;
         color: ${({ theme }) => theme.COLORS.Light[200]};
@@ -81,7 +81,7 @@ export const Container = styled.div`
         height: 77px;
         position: fixed;
         bottom: 0;
-        width: 26.75rem;
+        width: 35.41rem;
         padding: 0;
 
         p {

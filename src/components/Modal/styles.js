@@ -15,7 +15,7 @@ export const Container = styled.div`
   transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
 
   .modal {
-    background: #E6E6FA;
+    background: rgb(230, 230, 250);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);

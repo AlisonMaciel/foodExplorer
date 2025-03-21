@@ -10,6 +10,7 @@ export const Container = styled.button`
     width: 19.75rem;
     border-radius: 5px;
     background-color: ${({theme}) => theme.COLORS.Tints.Tomato[100]};
+    color: ${({theme}) => theme.COLORS.Light[100]};
     border: none;
     font-weight: 500;
     line-height: 1.5rem;

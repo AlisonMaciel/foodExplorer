@@ -11,6 +11,22 @@ export const Container = styled.header`
     background-color: ${({theme}) => theme.COLORS.Dark[700]};
     padding: 3.5rem 3.5rem 1.75rem 1.5rem;
 
+    >svg {
+      color: ${({theme}) => theme.COLORS.Light[100]};
+    }
+
+    @media (min-width: 375px) {
+        .quantity {
+          margin-left: -61px;
+        }
+    }
+
+    @media (min-width: 425px) {
+        .quantity {
+          margin-left: -85px;
+        }
+    }
+
     @media (min-width: ${BREAK_POINTS.MD}) {
         padding: 1rem;
 
@@ -59,7 +75,7 @@ export const Container = styled.header`
       border-radius: 50%;
       color: white;
       text-align: center;
-      margin-left: -37px;
+      margin-left: -33px;
       margin-bottom: 20px;
     }
 

@@ -5,7 +5,7 @@ export const Container = styled.footer`
     display: flex;
     background-color: ${({theme}) => theme.COLORS.Dark[600]};
     height: 4.81rem;
-    width: 100%;
+    max-width: 100%;
     padding: 0.5rem;
 
     div {

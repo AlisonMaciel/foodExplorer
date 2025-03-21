@@ -14,7 +14,7 @@ const homeAnimation = keyframes`
 `
 
 export const Container = styled.div`
-    max-width: 31.25rem;
+    max-width: 35.41rem;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -38,13 +38,14 @@ export const Container = styled.div`
     .Unmatched-flavors {
         display: flex;
         align-items: center;
-        max-width: 24rem;
+        max-width: 33rem;
         margin: 44px auto;
         background: linear-gradient(to bottom, #091E26, #00131C);
         
         img {
             width: 11.83rem;
-            margin-left: -22px;
+            margin-left: -11px;
+            margin-top: -15px;
         }
         
         span {

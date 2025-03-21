@@ -44,6 +44,7 @@ export const Container = styled.div`
             width: 100%;
             outline: none;
             box-shadow: none;
+            color: ${({theme}) => theme.COLORS.Light[100]};
             
             ::placeholder {
                 color: ${({theme}) => theme.COLORS.Light[500]};

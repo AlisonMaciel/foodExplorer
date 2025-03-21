@@ -20,7 +20,6 @@ export default createGlobalStyle`
     body {
         background-color: ${({theme}) => theme.COLORS.Dark[100]};
         font-family: "Poppins", serif;
-
         -webkit-font-smoothing: antialiased;
     }
 

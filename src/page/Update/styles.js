@@ -15,7 +15,7 @@ const updateAnimation = keyframes`
 `
 
 export const Container = styled.div`
-    max-width: 26.75rem;
+    max-width: 35.41rem;
     margin: 0 auto;
     background-color: ${({ theme }) => theme.COLORS.Dark[400]};
     display: flex;
