@@ -7,6 +7,7 @@ export const Container = styled.div`
     position: fixed;
     z-index: 1;
     max-width: 35.41rem;
+    width: 100%;
     transform: translateX(-100%);
     opacity: 0;
     pointer-events: none;
@@ -81,7 +82,8 @@ export const Container = styled.div`
         height: 77px;
         position: fixed;
         bottom: 0;
-        width: 35.41rem;
+        max-width: 35.41rem;
+        width: 100%;
         padding: 0;
 
         p {
