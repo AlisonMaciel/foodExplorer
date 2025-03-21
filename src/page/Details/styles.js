@@ -83,6 +83,7 @@ export const Container = styled.div`
 
             .add-decrease {
                 font-size: 1.3rem;
+                color: ${({theme}) => theme.COLORS.Light[100]};
                 
                 svg {
                   color: ${({theme}) => theme.COLORS.Light[100]};
