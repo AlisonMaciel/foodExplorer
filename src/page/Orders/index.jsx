@@ -128,7 +128,13 @@ export function Orders() {
     useEffect(() => {
       if(isLoaded) {
         const price = data.reduce((total, dish) => {
-        const dishPrice = Number(dish.strong.replace('R$', '').replace(',', '.').trim());
+          const dishPrice = Number(
+            dish.strong
+              .replace('R$', '')
+              .replace(/[.]/g, '') 
+              .replace(',', '.') 
+              .trim()
+          );
         return total + (dishPrice * Number(dish.quantity));
         }, 0);
         
