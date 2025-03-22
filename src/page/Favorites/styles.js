@@ -75,9 +75,11 @@ export const Section = styled.div`
         max-width: 22.43rem;
         padding: 1rem 0;
         animation: ${ordersAnimation} 550ms ease-in;
+
         img {
             max-width: 4.5rem;
             height: 4.5rem;
+            border-radius: 50%;
         }
 
         span {

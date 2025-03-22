@@ -102,6 +102,7 @@ export const Section = styled.div`
         img {
             max-width: 4.5rem;
             height: 4.5rem;
+            border-radius: 50%;
         }
 
         span {

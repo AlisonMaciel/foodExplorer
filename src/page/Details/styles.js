@@ -87,11 +87,9 @@ export const Container = styled.div`
                 
                 svg {
                   color: ${({theme}) => theme.COLORS.Light[100]};
+                  cursor: pointer;
                 }
 
-                svg {
-                    cursor: pointer;
-                }
             }
 
             .mobile {
@@ -106,9 +104,11 @@ export const Container = styled.div`
 
         .add-decrease {
             font-size: 1.3rem;
+            color: ${({ theme }) => theme.COLORS.Light[300]};
 
             svg {
                 cursor: pointer;
+                color: ${({ theme }) => theme.COLORS.Light[300]};
             }
         }
     }
@@ -144,6 +144,7 @@ export const Container = styled.div`
 
                 svg {
                     font-size: 2rem;
+                    color: ${({ theme }) => theme.COLORS.Light[300]};
                 }
             }
 
