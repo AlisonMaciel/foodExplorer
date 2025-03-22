@@ -29,8 +29,8 @@ export function SignUp() {
         return
       }
 
-      if(!email.includes("@")) {
-        setMessageError("Necessário conter o  @")
+      if(!email.includes("@gmail.com")) {
+        setMessageError("Necessário conter o  @gmail.com")
         setIsModalOpen(true)
         return
       }
