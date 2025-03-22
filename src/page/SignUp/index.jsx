@@ -15,6 +15,7 @@ export function SignUp() {
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [role, setRole] = useState("")
 
     const {create} = useAuth()
 
@@ -23,7 +24,7 @@ export function SignUp() {
 
     async function handleCreateUser({name, email, password}) {
 
-      if(!name, !email, !password) {
+      if(!name, !email, !password, !role) {
         setMessageError("preencha todos os campos para continuar")
         setIsModalOpen(true)
         return
@@ -41,7 +42,7 @@ export function SignUp() {
         return
       }
 
-      const result = await create({name, email, password})
+      const result = await create({name, email, password, role})
       
       if(result.success) {
         setMessageError(result.message)
@@ -92,6 +93,13 @@ export function SignUp() {
                 placeholder="No mínimo 6 caracteres"
                 type="password"
                 onChange={e => setPassword(e.target.value)}
+            />
+
+            <Input
+                title="Admin/customer"
+                placeholder="Escolha como irá se cadastrar"
+                type="text"
+                onChange={e => setRole(e.target.value)}
             />
 
             <Button

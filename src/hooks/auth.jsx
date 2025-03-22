@@ -32,10 +32,10 @@ function AuthProvider({children}) {
     setData({})
   }
 
-  async function create({name, email, password}) {
+  async function create({name, email, password, role}) {
 
     try {
-      await api.post("/user", {name, email, password})
+      await api.post("/user", {name, email, password, role})
       return {success: true, message: "Usuário criado com sucesso"}
     } 
     catch (error) {
