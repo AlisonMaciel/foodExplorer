@@ -60,6 +60,12 @@ export const Container = styled.div`
           }
         }
 
+        div:nth-child(5) {
+          >div {
+            padding: 10px;
+          }
+        }
+
         .input-form {
             padding: 5px;
         }
