@@ -9,7 +9,7 @@ FoodExplorer é uma aplicação full stack desenvolvida com **ReactJS** e **Node
 
 - **ReactJS** + Hooks  
 - **HTML5, CSS3, JavaScript**
-- **NodeJS **
+- **NodeJS**
 - **Express**
 - **Knex.js para consultas ao banco de dados**
 - **API RESTful**
