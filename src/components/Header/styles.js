@@ -1,6 +1,6 @@
-import {styled} from "styled-components"
+import { styled } from "styled-components";
 
-import {BREAK_POINTS} from "../../styles/breakPoints.js"
+import { BREAK_POINTS } from "../../styles/breakPoints.js";
 
 export const Container = styled.header`
     max-width: 100%;
@@ -8,23 +8,11 @@ export const Container = styled.header`
     align-items: center;
     box-sizing: border-box;
     justify-content: space-between;
-    background-color: ${({theme}) => theme.COLORS.Dark[700]};
+    background-color: ${({ theme }) => theme.COLORS.Dark[700]};
     padding: 3.5rem 3.5rem 1.75rem 1.5rem;
 
-    >svg {
-      color: ${({theme}) => theme.COLORS.Light[100]};
-    }
-
-    @media (min-width: 375px) {
-        .quantity {
-          margin-left: -61px;
-        }
-    }
-
-    @media (min-width: 425px) {
-        .quantity {
-          margin-left: -85px;
-        }
+    > svg {
+        color: ${({ theme }) => theme.COLORS.Light[100]};
     }
 
     @media (min-width: ${BREAK_POINTS.MD}) {
@@ -33,7 +21,7 @@ export const Container = styled.header`
         .list {
             display: none;
         }
-    
+
         .receipt {
             display: none;
         }
@@ -45,11 +33,10 @@ export const Container = styled.header`
         .span-mobile {
             display: none;
         }
-
     }
 
     img {
-      cursor: pointer;
+        cursor: pointer;
     }
 
     span {
@@ -57,30 +44,44 @@ export const Container = styled.header`
         font-weight: 400;
         font-size: 12px;
         line-height: 160%;
-        color: ${({theme}) => theme.COLORS.Tints.Cake[200]};
+        color: ${({ theme }) => theme.COLORS.Tints.Cake[200]};
     }
 
-    >svg {
+    > svg {
         width: 2rem;
         height: 2.37rem;
         cursor: pointer;
-        color: ${({theme}) => theme.COLORS.Light[100]};
+        color: ${({ theme }) => theme.COLORS.Light[100]};
+    }
+
+    .receipt-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .receipt {
+        width: 2rem;
+        height: 2.37rem;
+        cursor: pointer;
     }
 
     .quantity {
-      width: auto;
-      height: 1.5rem;
-      padding: 6px;
-      padding-top: 0.5px;
-      background-color: red;
-      border-radius: 50%;
-      color: white;
-      text-align: center;
-      margin-left: -80px;
-      margin-bottom: 20px;
+        position: absolute;
+        top: -5px; 
+        right: -5px; 
+        width: 1.5rem;
+        height: 1.5rem;
+        background-color: red;
+        border-radius: 50%;
+        color: white;
+        text-align: center;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    >svg:hover {
+    > svg:hover {
         filter: brightness(0.9);
     }
 
@@ -89,28 +90,27 @@ export const Container = styled.header`
     }
 
     .button-header {
-      max-width: 12.5rem;
-      padding: 3px;   
+        max-width: 12.5rem;
+        padding: 3px;
     }
 
     .signOut {
         display: none;
     }
 
-
-    >div {
+    > div {
         display: none;
         width: 70.12rem;
     }
 
-    >div {
+    > div {
         @media (min-width: ${BREAK_POINTS.MD}) {
             display: flex;
             align-items: center;
             margin: 0 auto;
             gap: 2rem;
             max-width: 70.12rem;
-            
+
             .image-text-box {
                 height: 2.33rem;
                 display: flex;
@@ -129,7 +129,7 @@ export const Container = styled.header`
             img {
                 height: 1.7rem;
             }
-    
+
             .input-header {
                 display: flex;
                 align-items: center;
@@ -147,23 +147,23 @@ export const Container = styled.header`
                 font-weight: 400;
                 font-size: 1rem;
                 line-height: 100%;
-                color: ${({theme}) => theme.COLORS.Light[300]};
+                color: ${({ theme }) => theme.COLORS.Light[300]};
                 width: 18.15rem;
                 margin-top: 20px;
                 cursor: pointer;
                 display: none;
-              
+
                 &[data-favorites="true"] {
-                  display: block;
+                    display: block;
                 }
             }
-    
+
             .button-header {
                 display: flex;
                 max-width: 18.5rem;
                 margin-top: 19px;
             }
-    
+
             .signOut {
                 display: flex;
                 width: 4rem;
@@ -173,21 +173,20 @@ export const Container = styled.header`
             }
 
             .quantity {
-              display: none;
+                display: none;
             }
-            
         }
-        
+
         @media (max-width: 904px) {
             .input-header {
                 padding: 0.38rem;
             }
-            
+
             .button-header {
                 max-width: 12.5rem;
                 padding: 3px;
             }
-            
+
             .signOut {
                 display: flex;
                 width: 3.62rem;
@@ -195,14 +194,12 @@ export const Container = styled.header`
                 cursor: pointer;
             }
         }
-  }
-
-  @media (min-width: 1024px) {
-    .button-header {
-      max-width: 12.5rem;
-      padding: 10px;
     }
-  }
 
-`
-
+    @media (min-width: 1024px) {
+        .button-header {
+            max-width: 12.5rem;
+            padding: 10px;
+        }
+    }
+`;

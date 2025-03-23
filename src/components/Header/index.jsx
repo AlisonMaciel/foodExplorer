@@ -75,14 +75,10 @@ export function Header({onOpenMenu, favorites, order, quantity}) {
                 </span>
             }
             {user.role === USER_ROLE.CUSTOMER &&
-              <>
-                <Receipt
-                className="receipt"
-                onClick={() => navigate(`/orders`)}
-                />
-
-                <span className="quantity">{quantity}</span>
-              </>
+             <div className="receipt-container">
+              <Receipt className="receipt" onClick={() => navigate(`/orders`)} />
+              <span className="quantity">{quantity}</span>
+            </div>
             }
 
             <div>
