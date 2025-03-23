@@ -21,7 +21,9 @@ FoodExplorer é uma aplicação web desenvolvida com **ReactJS** que permite a e
 
 ## 🔗 Acesse o projeto  
 
-[FoodExplorer - Aplicação Web](https://fodanddrinks.netlify.app)  
+<a href="https://fodanddrinks.netlify.app/" target="-blank">
+  FoodExplorer
+</a> 
 
 ## ⚠️ Nota  
 
