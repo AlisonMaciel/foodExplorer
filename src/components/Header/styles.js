@@ -64,6 +64,7 @@ export const Container = styled.header`
         width: 2rem;
         height: 2.37rem;
         cursor: pointer;
+        color: ${({theme}) => theme.COLORS.Light[100]};
     }
 
     .quantity {

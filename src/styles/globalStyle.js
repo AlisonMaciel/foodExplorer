@@ -23,6 +23,10 @@ export default createGlobalStyle`
         -webkit-font-smoothing: antialiased;
     }
 
+    svg, button, input, textarea {
+      color: ${({theme}) => theme.COLORS.Light[100]};
+    }
+
     a {
         text-decoration: none;
     }

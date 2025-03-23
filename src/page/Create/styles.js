@@ -43,6 +43,7 @@ export const Container = styled.div`
         h1 {
             font-weight: 500;
             font-size: 1.7rem;
+            color: ${({theme}) => theme.COLORS.Light[100]};
         }
 
         > span {
@@ -102,6 +103,10 @@ export const Container = styled.div`
 
         .save-remove {
           animation: ${createAnimation} 1s ease-in-out;
+        }
+
+        h1 {
+          color: ${({theme}) => theme.COLORS.Light[100]};
         }
     }
 
