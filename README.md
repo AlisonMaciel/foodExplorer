@@ -32,7 +32,7 @@ FoodExplorer é uma aplicação full stack desenvolvida com **ReactJS** e **Node
 
 ## 🔗 Acesse o projeto 👇
 
-🔗 [Acesse o FoodExplorer](https://fodanddrinks.netlify.app/)
+🔗 [Acesse o FoodExplorer](https://fodanddrinks.netlify.app)
 
 ## ⚠️ Nota  
 
