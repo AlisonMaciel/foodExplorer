@@ -15,15 +15,29 @@ export const Container = styled.header`
       color: ${({theme}) => theme.COLORS.Light[100]};
     }
 
-    @media (min-width: 375px) {
+    .quantity {
+      width: auto;
+      height: 1.5rem;
+      padding: 6px;
+      padding-top: 0.5px;
+      background-color: red;
+      border-radius: 50%;
+      color: white;
+      text-align: center;
+      margin-left: -80px;
+      margin-bottom: 20px;
+    }
+
+
+    @media (max-width: 320px) {
         .quantity {
-          margin-left: -61px;
+          margin-left: -33px;
         }
     }
 
-    @media (min-width: 425px) {
+    @media (min-width: 375px) {
         .quantity {
-          margin-left: -85px;
+          margin-left: -60px;
         }
     }
 
@@ -65,19 +79,6 @@ export const Container = styled.header`
         height: 2.37rem;
         cursor: pointer;
         color: ${({theme}) => theme.COLORS.Light[100]};
-    }
-
-    .quantity {
-      width: auto;
-      height: 1.5rem;
-      padding: 6px;
-      padding-top: 0.5px;
-      background-color: red;
-      border-radius: 50%;
-      color: white;
-      text-align: center;
-      margin-left: -80px;
-      margin-bottom: 20px;
     }
 
     >svg:hover {
