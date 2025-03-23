@@ -159,7 +159,7 @@ export const Container = styled.div`
                     display: flex;
                     max-width: 19.37rem;
                     height: 24.31rem;
-                    margin-left: -90px;
+                    margin-left: -50px;
                     border-radius: 50%;
                 }
             }
