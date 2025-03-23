@@ -28,6 +28,11 @@ export const Container = styled.header`
       margin-bottom: 20px;
     }
 
+    @media (max-width: 375px) {
+        .quantity {
+          margin-left: -60px;
+        }
+    }
 
     @media (max-width: 320px) {
         .quantity {
@@ -35,11 +40,6 @@ export const Container = styled.header`
         }
     }
 
-    @media (max-width: 375px) {
-        .quantity {
-          margin-left: -60px;
-        }
-    }
 
     @media (min-width: ${BREAK_POINTS.MD}) {
         padding: 1rem;
