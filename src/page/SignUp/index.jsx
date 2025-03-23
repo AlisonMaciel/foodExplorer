@@ -9,6 +9,7 @@ import {Button} from "../../components/Button"
 import {Modal} from "../../components/Modal"
 
 import foodExplorerImg from "../../assets/Frame 5946.svg"
+import { useNavigate } from "react-router-dom"
 
 export function SignUp() {
 
@@ -16,6 +17,8 @@ export function SignUp() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [role, setRole] = useState("")
+
+    const navigate = useNavigate()
 
     const {create} = useAuth()
 
@@ -47,6 +50,10 @@ export function SignUp() {
       if(result.success) {
         setMessageError(result.message)
         setIsModalOpen(true)
+
+        setTimeout(() => {
+          navigate("/")
+        }, 3000)
       }
 
       if(!result.success) {
