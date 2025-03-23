@@ -35,7 +35,7 @@ export const Container = styled.header`
         }
     }
 
-    @media (min-width: 375px) {
+    @media (max-width: 375px) {
         .quantity {
           margin-left: -60px;
         }
