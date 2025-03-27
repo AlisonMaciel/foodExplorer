@@ -5,7 +5,7 @@ import { Container } from "./styles.js";
 import { Header } from "../../components/Header/index.jsx";
 import { Footer } from "../../components/Footer/index.jsx";
 import { Card } from "../../components/Card/index.jsx";
-import { ModalExtra } from "../../components/ModalExtra";
+import {Loading} from "../../components/Loading"
 
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
@@ -165,7 +165,7 @@ export function Home() {
             order={items.length}
             quantity={items.length}
             />
-
+          {dataDrinks && dataMeal && dataDesserts ? (
             <main>
                 <div className="Unmatched-flavors">
                     <img src={img} alt="Vários sabores em uma única imagem" />
@@ -316,6 +316,7 @@ export function Home() {
                     />
                 </section>
             </main>
+          ): (<Loading/>)}
 
             <Footer />
         </Container>
