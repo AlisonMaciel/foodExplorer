@@ -165,6 +165,7 @@ export function Home() {
             order={items.length}
             quantity={items.length}
             />
+
           {dataDrinks && dataMeal && dataDesserts ? (
             <main>
                 <div className="Unmatched-flavors">
@@ -318,7 +319,7 @@ export function Home() {
             </main>
           ): (<Loading/>)}
 
-            <Footer />
+            <Footer/>
         </Container>
     );
 }
