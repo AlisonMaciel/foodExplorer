@@ -17,12 +17,12 @@ export const Container = styled.div`
     border: 1px solid ${({theme}) => theme.COLORS.Dark[200]};
     border-radius: 0.5rem;
     background-color: ${({theme}) => theme.COLORS.Dark[200]};
-    cursor: pointer;
 
     >img {
         width: 5.5rem;
         height: 5.5rem;
         border-radius: 50%;
+        cursor: pointer;
     }
 
     .img-card {
@@ -34,6 +34,7 @@ export const Container = styled.div`
         font-size: 0.87rem;
         line-height: 1.5rem;
         color: ${({theme}) => theme.COLORS.Light[300]};
+        cursor: pointer;
     }
 
     >p {
@@ -41,6 +42,7 @@ export const Container = styled.div`
         max-width: 100%;
         text-align: center;
         white-space: normal;
+        cursor: pointer;
     }
     
     >strong {
