@@ -55,6 +55,10 @@ export const Container = styled.div`
             color: ${({theme}) => theme.COLORS.Light[100]};
         }
 
+        button {
+          margin: 0 auto;
+        }
+
         .input-form {
             padding: 5px;
         }
