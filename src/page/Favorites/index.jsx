@@ -72,7 +72,7 @@ export function Favorites() {
                                     alt={dish.name}
                                 />
                                 <div>
-                                    <span onClick={navigate(`/details${dish.id}`)}>
+                                    <span onClick={navigate(`/details/${dish.id}`)}>
                                       {dish.name}
                                     </span>
                                     <button onClick={() => handleRemove(dish)}>
