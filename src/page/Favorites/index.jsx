@@ -6,13 +6,18 @@ import { SideMenu } from "../../components/SideMenu";
 
 import { useEffect, useState } from "react";
 import { api } from "../../server/index.js";
+import { useNavigate } from "react-router-dom";
 
 export function Favorites() {
     const [menuIsOpen, setMenuIsOpen] = useState(false);
     const [favorites, setFavorites] = useState([]);
+
     const [data, setData] = useState([]);
     const items = [...data];
+
     const [isLoaded, setIsLoaded] = useState(false);
+
+    const navigate = useNavigate()
 
     function handleRemove(dish) {
         setFavorites((prevState) =>
@@ -60,14 +65,16 @@ export function Favorites() {
                 <Section>
                     <h1>Meus favoritos</h1>
                     {favorites &&
-                        favorites.map((dish, index) => (
-                            <div className="orders" key={index}>
+                        favorites.map((dish) => (
+                            <div className="orders" key={dish.id}>
                                 <img
                                     src={`${api.defaults.baseURL}/files/${dish.img}`}
                                     alt={dish.name}
                                 />
                                 <div>
-                                    <span>{dish.name}</span>
+                                    <span onClick={navigate(`/details${dish.id}`)}>
+                                      {dish.name}
+                                    </span>
                                     <button onClick={() => handleRemove(dish)}>
                                         Remover dos Favoritos
                                     </button>

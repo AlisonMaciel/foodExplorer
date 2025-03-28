@@ -233,6 +233,7 @@ export function Home() {
                                         number={quantities[meal.id] || 0}
                                         handleAddFavorite={() =>
                                             handleFavorites({
+                                                id: meal.id,
                                                 img: meal.avatar_dish,
                                                 name: meal.name,
                                             })
@@ -291,6 +292,7 @@ export function Home() {
                                         }
                                         handleAddFavorite={() =>
                                             handleFavorites({
+                                                id: desserts.id,
                                                 img: desserts.avatar_dish,
                                                 name: desserts.name,
                                             })
@@ -347,6 +349,7 @@ export function Home() {
                                         }
                                         handleAddFavorite={() =>
                                             handleFavorites({
+                                                id: drinks.id,
                                                 img: drinks.avatar_dish,
                                                 name: drinks.name,
                                             })
