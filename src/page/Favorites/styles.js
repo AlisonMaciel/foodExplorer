@@ -88,6 +88,7 @@ export const Section = styled.div`
             line-height: 130%;
             color: ${({ theme }) => theme.COLORS.Light[300]};
             text-align: start;
+            cursor: pointer;
         }
 
         button {
