@@ -1,9 +1,5 @@
-import {Container} from "./styles.js"
+import { Container } from "./styles.js";
 
-export function TextArea({description,...rest}) {
-    return (
-        <Container {...rest}>
-            {description}
-        </Container>
-    )
+export function TextArea({ description, ...rest }) {
+    return <Container {...rest}>{description}</Container>;
 }

@@ -12,15 +12,13 @@ import { PixLogo, CreditCard } from "@phosphor-icons/react";
 
 import img from "../../assets/qrcode 1.svg";
 
-
 import { useEffect, useState } from "react";
 import { api } from "../../server/index.js";
 
 export function Orders() {
-
     const [menuIsOpen, setMenuIsOpen] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false)
-    const [messageError, setMessageError] = useState(null)
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [messageError, setMessageError] = useState(null);
 
     const [sectionIsOpen, setSectionIsOpen] = useState(true);
     const [pix, setPix] = useState(false);
@@ -28,13 +26,13 @@ export function Orders() {
     const [payment, setPayment] = useState(false);
     const [pixDesktop, setPixDesktop] = useState(true);
     const [creditDesktop, setCreditDesktop] = useState(false);
-    const [isLoaded, setIsLoaded] = useState(false)
+    const [isLoaded, setIsLoaded] = useState(false);
     const favorites = true;
 
-    const [data, setData] = useState([])
-    let items = [...data]
+    const [data, setData] = useState([]);
+    let items = [...data];
 
-    const [totalPrice, setTotalPrice] = useState()
+    const [totalPrice, setTotalPrice] = useState();
 
     const [numberCard, setNumberCard] = useState("");
     const [numberMMAA, setNumberMMAA] = useState("");
@@ -70,91 +68,95 @@ export function Orders() {
     }
 
     function handlePix() {
-        setPix(true)
-        setPixDesktop(true)
-        setCreditDesktop(false)
-        setCredit(false)
-        setNumberCVC("")
-        setNumberCard("")
-        setNumberMMAA("")
-    } 
+        setPix(true);
+        setPixDesktop(true);
+        setCreditDesktop(false);
+        setCredit(false);
+        setNumberCVC("");
+        setNumberCard("");
+        setNumberMMAA("");
+    }
 
     function handleDeleteDish(dish) {
-      setData(prevState => prevState.filter(orders => orders.id !== dish.id))
-      localStorage.setItem("@dish", JSON.stringify(data))
+        setData((prevState) =>
+            prevState.filter((orders) => orders.id !== dish.id)
+        );
+        localStorage.setItem("@dish", JSON.stringify(data));
     }
 
     async function handlePayment(value) {
-      if(!setNumberMMAA || !setNumberCVC || !setNumberCard) {
-        setMessageError("Por favor preencha todos os campos de pagamento")
-        setIsModalOpen(true)
-        return
-      }
-
-      if(data == 0) {
-        setMessageError("sem pedidos para realizar a compra")
-        setIsModalOpen(true)
-        return
-      }
-
-      const Card = numberCard
-      const MMAA =  numberMMAA
-      const CVC = numberCVC
-      
-      try {
-        await api.post("/payment", {value, Card, MMAA, CVC})
-        setIsModalOpen(true)
-        setData([])
-        setNumberCVC("")
-        setNumberCard("")
-        setNumberMMAA("")
-      } catch (error) {
-        if(error.response) {
-          setMessageError(error.response.data.message)
-          setIsModalOpen(true)
+        if (!setNumberMMAA || !setNumberCVC || !setNumberCard) {
+            setMessageError("Por favor preencha todos os campos de pagamento");
+            setIsModalOpen(true);
+            return;
         }
-      }
+
+        if (data == 0) {
+            setMessageError("sem pedidos para realizar a compra");
+            setIsModalOpen(true);
+            return;
+        }
+
+        const Card = numberCard;
+        const MMAA = numberMMAA;
+        const CVC = numberCVC;
+
+        try {
+            await api.post("/payment", { value, Card, MMAA, CVC });
+            setIsModalOpen(true);
+            setData([]);
+            setNumberCVC("");
+            setNumberCard("");
+            setNumberMMAA("");
+        } catch (error) {
+            if (error.response) {
+                setMessageError(error.response.data.message);
+                setIsModalOpen(true);
+            }
+        }
     }
 
     useEffect(() => {
-      const dish = localStorage.getItem("@dish")
+        const dish = localStorage.getItem("@dish");
 
-      if(dish) {
-        setData(JSON.parse(dish)) 
-      }
-      setIsLoaded(true)
-    }, [])
+        if (dish) {
+            setData(JSON.parse(dish));
+        }
+        setIsLoaded(true);
+    }, []);
 
     useEffect(() => {
-      if(isLoaded) {
-        const price = data.reduce((total, dish) => {
-          const dishPrice = Number(
-            dish.strong
-              .replace('R$', '')
-              .replace(/[.]/g, '') 
-              .replace(',', '.') 
-              .trim()
-          );
-        return total + (dishPrice * Number(dish.quantity));
-        }, 0);
-        
-        setTotalPrice(price.toFixed(2));
-        
-    }
+        if (isLoaded) {
+            const price = data.reduce((total, dish) => {
+                const dishPrice = Number(
+                    dish.strong
+                        .replace("R$", "")
+                        .replace(/[.]/g, "")
+                        .replace(",", ".")
+                        .trim()
+                );
+                return total + dishPrice * Number(dish.quantity);
+            }, 0);
 
-    }, [isLoaded, data])
-    
+            setTotalPrice(price.toFixed(2));
+        }
+    }, [isLoaded, data]);
+
     return (
         <Container>
             <SideMenu
                 menuIsOpen={menuIsOpen}
                 onClosedMenu={() => setMenuIsOpen(false)}
             />
-            
+
             <Modal
-              onOpenModal={isModalOpen}
-              description={messageError ? messageError : "Pagamento efetuado com sucesso"}
-              onClosedModal={() => setIsModalOpen(false)}
+                onOpenModal={isModalOpen}
+                description={
+                    messageError
+                        ? messageError
+                        : "Pagamento efetuado com sucesso"
+                }
+                onClosedModal={() => setIsModalOpen(false)}
             />
             <Header
                 onOpenMenu={() => setMenuIsOpen(true)}
@@ -167,21 +169,28 @@ export function Orders() {
                 <Section data-orders={sectionIsOpen}>
                     <h1>Meu pedido</h1>
 
-              { data && data.map(dish => (
-                    <div className="orders" key={dish.id}>
-                        <img src={`${api.defaults.baseURL}/files/${dish.img}`} alt="Imagem do prato" />
-                        <div>
-                            <span> {dish.quantity} x {dish.span}</span>
-                            <button onClick={() => handleDeleteDish(dish)}>
-                              Remover dos Favoritos
-                            </button>
-                        </div>
-                    </div>
-              ))}
+                    {data &&
+                        data.map((dish) => (
+                            <div className="orders" key={dish.id}>
+                                <img
+                                    src={`${api.defaults.baseURL}/files/${dish.img}`}
+                                    alt="Imagem do prato"
+                                />
+                                <div>
+                                    <span>
+                                        {" "}
+                                        {dish.quantity} x {dish.span}
+                                    </span>
+                                    <button
+                                        onClick={() => handleDeleteDish(dish)}
+                                    >
+                                        Remover dos Favoritos
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
                     <h2>Total: R${totalPrice}</h2>
-
                 </Section>
-                
 
                 {sectionIsOpen === true && (
                     <Button
@@ -251,9 +260,9 @@ export function Orders() {
                                         required
                                     />
                                 </div>
-                                <Button 
-                                  title="Finalizar pagamento"
-                                  onClick={() => handlePayment(totalPrice)}
+                                <Button
+                                    title="Finalizar pagamento"
+                                    onClick={() => handlePayment(totalPrice)}
                                 />
                             </form>
                         </div>
@@ -264,20 +273,28 @@ export function Orders() {
             <div className="section-desktop">
                 <Section>
                     <h1>Meu pedido</h1>
-                    {
-                    data && data.map(dish => (
-                      <div className="orders" key={dish.id}>
-                          <img src={`${api.defaults.baseURL}/files/${dish.img}`} alt={dish.span} />
-                          <div>
-                              <span> {dish.quantity} x {dish.span}</span>
-                              <strong>{dish.strong}</strong>
-                              <button onClick={() => handleDeleteDish(dish)}>
-                                Excluir
-                              </button>
-                          </div>
-                      </div>
-                    ))}
-                      <h2>Total: R${totalPrice}</h2>
+                    {data &&
+                        data.map((dish) => (
+                            <div className="orders" key={dish.id}>
+                                <img
+                                    src={`${api.defaults.baseURL}/files/${dish.img}`}
+                                    alt={dish.span}
+                                />
+                                <div>
+                                    <span>
+                                        {" "}
+                                        {dish.quantity} x {dish.span}
+                                    </span>
+                                    <strong>{dish.strong}</strong>
+                                    <button
+                                        onClick={() => handleDeleteDish(dish)}
+                                    >
+                                        Excluir
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
+                    <h2>Total: R${totalPrice}</h2>
                 </Section>
 
                 <Payment>
@@ -285,10 +302,7 @@ export function Orders() {
                     <Pix data-pix-desktop={pixDesktop}>
                         <div className="payment">
                             <div>
-                                <PaymenBtutton 
-                                    icon={PixLogo} 
-                                    title="PIX"
-                                />
+                                <PaymenBtutton icon={PixLogo} title="PIX" />
                                 <PaymenBtutton
                                     icon={CreditCard}
                                     title="Crédito"
@@ -346,9 +360,9 @@ export function Orders() {
                                         required
                                     />
                                 </div>
-                                <Button 
-                                  title="Finalizar pagamento"
-                                  onClick={() => handlePayment(totalPrice)} 
+                                <Button
+                                    title="Finalizar pagamento"
+                                    onClick={() => handlePayment(totalPrice)}
                                 />
                             </form>
                         </div>

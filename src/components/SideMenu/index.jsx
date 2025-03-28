@@ -1,70 +1,68 @@
-import {Container} from "./styles.js"
+import { Container } from "./styles.js";
 
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 
-import {FiX} from "react-icons/fi"
+import { FiX } from "react-icons/fi";
 
-import {MagnifyingGlass} from "@phosphor-icons/react"
+import { MagnifyingGlass } from "@phosphor-icons/react";
 
-import foodExplorerFooter from "../../assets/Group 5946.svg"
+import foodExplorerFooter from "../../assets/Group 5946.svg";
 
-import {Input} from "../Input"
+import { Input } from "../Input";
 
-import { USER_ROLE } from "../../utils/roles.js"
+import { USER_ROLE } from "../../utils/roles.js";
 
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 import { useAuth } from "../../hooks/auth.jsx";
-import { useSearch } from "../../hooks/searchContext.jsx"
-import { ModalExtra } from "../ModalExtra"
+import { useSearch } from "../../hooks/searchContext.jsx";
+import { ModalExtra } from "../ModalExtra";
 
-export function SideMenu({menuIsOpen, onClosedMenu}) {
+export function SideMenu({ menuIsOpen, onClosedMenu }) {
+    const { signOut, user } = useAuth();
 
-    const {signOut, user} = useAuth()
+    const { search, setSearch } = useSearch();
 
-    const {search, setSearch} = useSearch()
+    const navigate = useNavigate();
 
-    const navigate = useNavigate()
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+    const [confirm, setConfirm] = useState(null);
 
-    const [modalIsOpen, setModalIsOpen] = useState(false)
-    const [confirm, setConfirm] = useState(null)
+    function activeModal() {
+        setModalIsOpen(true);
+    }
 
-     function activeModal() {
-          setModalIsOpen(true)
+    function closeModal() {
+        setModalIsOpen(false);
+    }
+
+    function handleSignOut() {
+        setConfirm(true);
+    }
+
+    useEffect(() => {
+        if (confirm) {
+            signOut();
+            navigate("/");
         }
-        
-        function closeModal() {
-          setModalIsOpen(false)
-        }
-    
-        function handleSignOut() {
-          setConfirm(true)
-        }
-    
-        useEffect(() => {
-          if(confirm) {
-            signOut()
-            navigate("/")
-          }
-        }, [confirm])
+    }, [confirm]);
 
     return (
         <Container data-menu-is-open={menuIsOpen}>
-
             <ModalExtra
-              modalIsOpen={modalIsOpen}
-              yes={() => handleSignOut()}
-              no={() => closeModal()}
+                modalIsOpen={modalIsOpen}
+                yes={() => handleSignOut()}
+                no={() => closeModal()}
             />
 
             <header>
-                <FiX
-                    onClick={onClosedMenu}
-                    className="x"
+                <FiX 
+                  onClick={onClosedMenu} 
+                  className="x"
                 />
                 <span>Menu</span>
             </header>
-    
+
             <div>
                 <Input
                     className="search"
@@ -73,39 +71,30 @@ export function SideMenu({menuIsOpen, onClosedMenu}) {
                     onChange={(e) => setSearch(e.target.value)}
                 />
 
-                {
-                    user.role === USER_ROLE.ADMIN &&
+                {user.role === USER_ROLE.ADMIN && (
                     <div className="create">
                         <a href="/create">Novo prato</a>
                     </div>
-                }
-              
+                )}
+
                 <div className="favorites">
-                  <a href="/favorites">Favoritos</a>
+                    <a href="/favorites">Favoritos</a>
                 </div>
-                
+
                 <div className="home">
-                  <a href="/">Home</a>
+                    <a href="/">Home</a>
                 </div>
-                
+
                 <div className="toGoOut">
-                    <span onClick={() => activeModal()}>
-                      Sair
-                    </span>
+                    <span onClick={() => activeModal()}>Sair</span>
                 </div>
             </div>
 
             <footer>
-                <img 
-                    src={foodExplorerFooter} 
-                    alt="foodExplorer" 
-                />
-                            
-                <p>
-                    © 2025 - Todos os direitos reservados.
-                </p>   
-            </footer>
+                <img src={foodExplorerFooter} alt="foodExplorer" />
 
+                <p>© 2025 - Todos os direitos reservados.</p>
+            </footer>
         </Container>
-    )
+    );
 }

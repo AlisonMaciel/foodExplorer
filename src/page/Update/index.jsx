@@ -1,46 +1,46 @@
-import { Container, AvatarDish } from "./styles.js"
+import { Container, AvatarDish } from "./styles.js";
 
-import { Input } from "../../components/Input/index.jsx"
-import { Header } from "../../components/Header/index.jsx"
-import { InputSelector } from "../../components/InputSelector/index.jsx"
-import { BookMarkers } from "../../components/BookMarkers/index.jsx"
-import { TextArea } from "../../components/TextArea/index.jsx"
-import { Button } from "../../components/Button/index.jsx"
-import { Footer } from "../../components/Footer/index.jsx"
-import { SideMenu } from "../../components/SideMenu/index.jsx"
-import { Modal } from "../../components/Modal"
+import { Input } from "../../components/Input/index.jsx";
+import { Header } from "../../components/Header/index.jsx";
+import { InputSelector } from "../../components/InputSelector/index.jsx";
+import { BookMarkers } from "../../components/BookMarkers/index.jsx";
+import { TextArea } from "../../components/TextArea/index.jsx";
+import { Button } from "../../components/Button/index.jsx";
+import { Footer } from "../../components/Footer/index.jsx";
+import { SideMenu } from "../../components/SideMenu/index.jsx";
+import { Modal } from "../../components/Modal";
 
-import { RiArrowLeftSLine } from "react-icons/ri"
-import { UploadSimple } from "@phosphor-icons/react"
+import { RiArrowLeftSLine } from "react-icons/ri";
+import { UploadSimple } from "@phosphor-icons/react";
 
-import { useState } from "react"
+import { useState } from "react";
 
-import { useNavigate, useParams } from "react-router-dom"
-import { api } from "../../server/index.js"
+import { useNavigate, useParams } from "react-router-dom";
+import { api } from "../../server/index.js";
 
 export function Update() {
-    const options = ["Refeição", "Bebidas", "Sobremesas"]
+    const options = ["Refeição", "Bebidas", "Sobremesas"];
 
     const [menuIsOpen, setMenuIsOpen] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false)
-    const [messageError, setMessageError] = useState(null)
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [messageError, setMessageError] = useState(null);
 
-    const [name, setName] = useState("")
-    const [category, setCategory] = useState("")
-    const [ingredient, setIgredient] = useState([])
-    const [newIngredient, setNewIngredient] = useState("")
-    const [price, setPrice] = useState("")
-    const [description, setDescription] = useState("")
+    const [name, setName] = useState("");
+    const [category, setCategory] = useState("");
+    const [ingredient, setIgredient] = useState([]);
+    const [newIngredient, setNewIngredient] = useState("");
+    const [price, setPrice] = useState("");
+    const [description, setDescription] = useState("");
 
-    const [avatarFile, setAvatarFile] = useState(null)
+    const [avatarFile, setAvatarFile] = useState(null);
 
-    const params = useParams()
+    const params = useParams();
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     function handleAddIngredient(newIngredient) {
         setIgredient((prevState) => [...prevState, newIngredient]);
-        setNewIngredient("")
+        setNewIngredient("");
     }
 
     function handleDeleteIngredient(removeIngredient) {
@@ -50,7 +50,7 @@ export function Update() {
     }
 
     function formatPrice(value) {
-        let numericValue = value.replace(/\D/g, "")
+        let numericValue = value.replace(/\D/g, "");
 
         let formattedValue = (Number(numericValue) / 100).toLocaleString(
             "pt-BR",
@@ -61,24 +61,26 @@ export function Update() {
             }
         );
 
-        return setPrice(formattedValue)
+        return setPrice(formattedValue);
     }
 
     function handleAvatar(event) {
-        const file = event.target.files[0]
-        setAvatarFile(file)
+        const file = event.target.files[0];
+        setAvatarFile(file);
     }
 
     async function handleCreate() {
         if ((!name, !category, !ingredient, !price)) {
-          setMessageError("Preencha os campos para continuar, em exceção a descrição");
-          setIsModalOpen(true)
-          return
+            setMessageError(
+                "Preencha os campos para continuar, em exceção a descrição"
+            );
+            setIsModalOpen(true);
+            return;
         }
 
         if (newIngredient) {
-          setMessageError("Adicione a tag para continuar");
-          setIsModalOpen(true)
+            setMessageError("Adicione a tag para continuar");
+            setIsModalOpen(true);
         }
 
         const dish = {
@@ -87,39 +89,39 @@ export function Update() {
             ingredient,
             price,
             description,
-        }
+        };
 
         try {
-            await api.put(`/dish/${params.id}`, dish)
+            await api.put(`/dish/${params.id}`, dish);
 
             if (avatarFile) {
-                const fileUploads = new FormData()
-                fileUploads.append("avatar_dish", avatarFile)
+                const fileUploads = new FormData();
+                fileUploads.append("avatar_dish", avatarFile);
 
-                await api.patch(`/dish/avatar_dish/${params.id}`, fileUploads)
+                await api.patch(`/dish/avatar_dish/${params.id}`, fileUploads);
             }
 
-            setMessageError("Prato atualizado com sucesso!")
-            setIsModalOpen(true)
+            setMessageError("Prato atualizado com sucesso!");
+            setIsModalOpen(true);
         } catch (error) {
             if (error.response) {
-              setMessageError(error.response.data.message)
-              setIsModalOpen(true)
+                setMessageError(error.response.data.message);
+                setIsModalOpen(true);
             }
         }
     }
 
     async function handleDeleteDish() {
-      try {
-        await api.delete(`/dish/${params.id}`)
-        setMessageError("Prato deletado com sucesso!")
-        setIsModalOpen(true)
-      } catch (error) {
-          if(error.response) {
-            setMessageError(error.response.data.message)
-            setIsModalOpen(true)
-          }
-      }
+        try {
+            await api.delete(`/dish/${params.id}`);
+            setMessageError("Prato deletado com sucesso!");
+            setIsModalOpen(true);
+        } catch (error) {
+            if (error.response) {
+                setMessageError(error.response.data.message);
+                setIsModalOpen(true);
+            }
+        }
     }
 
     return (
@@ -129,10 +131,12 @@ export function Update() {
                 onClosedMenu={() => setMenuIsOpen(false)}
             />
 
-             <Modal
-              onOpenModal={isModalOpen}
-              description={messageError ? messageError : "Prato criado com sucesso"}
-              onClosedModal={() => setIsModalOpen(false)}
+            <Modal
+                onOpenModal={isModalOpen}
+                description={
+                    messageError ? messageError : "Prato criado com sucesso"
+                }
+                onClosedModal={() => setIsModalOpen(false)}
             />
 
             <Header onOpenMenu={() => setMenuIsOpen(true)} />
@@ -169,30 +173,27 @@ export function Update() {
                     onChange={(e) => setName(e.target.value)}
                 />
 
-                <InputSelector 
-                  title="Categoria" 
-                  options={options}
-                  onChange={(e) => setCategory(e.target.value)} 
+                <InputSelector
+                    title="Categoria"
+                    options={options}
+                    onChange={(e) => setCategory(e.target.value)}
                 />
 
                 <div className="markers">
                     <span>Ingredients</span>
 
                     <div className="bookmarkers">
-                      {
-                        ingredient && ingredient.map((tags, index) => (
-                          <BookMarkers 
-                          value={tags}
-                          key={index}
-                          />
-                        ))
-                      }
+                        {ingredient &&
+                            ingredient.map((tags, index) => (
+                                <BookMarkers value={tags} key={index} />
+                            ))}
 
-                        <BookMarkers 
-                          isNew placeholder="Adicionar"
-                          value={newIngredient}
-                          onChange={(e) => setNewIngredient(e.target.value)}
-                          onClick={() => handleAddIngredient(newIngredient)}
+                        <BookMarkers
+                            isNew
+                            placeholder="Adicionar"
+                            value={newIngredient}
+                            onChange={(e) => setNewIngredient(e.target.value)}
+                            onClick={() => handleAddIngredient(newIngredient)}
                         />
                     </div>
                 </div>
@@ -214,15 +215,15 @@ export function Update() {
                 />
 
                 <div className="save-remove">
-                    <Button 
-                      className="button-dark" 
-                      title="Excluir prato" 
-                      onClick={() => handleDeleteDish()}
+                    <Button
+                        className="button-dark"
+                        title="Excluir prato"
+                        onClick={() => handleDeleteDish()}
                     />
-                    <Button 
-                      className="button-rose" 
-                      title="Salvar alterações"
-                      onClick={() => handleCreate()}
+                    <Button
+                        className="button-rose"
+                        title="Salvar alterações"
+                        onClick={() => handleCreate()}
                     />
                 </div>
             </section>
@@ -308,23 +309,23 @@ export function Update() {
                     placeholder="Fale brevemente sobre o prato, seus ingredientes e composição"
                     className="textare
                     a"
-                    onChange={e => setDescription(e.target.value)}
+                    onChange={(e) => setDescription(e.target.value)}
                 />
 
                 <div className="save-remove">
-                    <Button 
-                      className="button-dark" 
-                      title="Excluir prato" 
-                      onClick={() => handleDeleteDish()}
+                    <Button
+                        className="button-dark"
+                        title="Excluir prato"
+                        onClick={() => handleDeleteDish()}
                     />
-                    <Button 
-                      className="button-rose" 
-                      title="Salvar alterações"
-                      onClick={() => handleCreate()} 
+                    <Button
+                        className="button-rose"
+                        title="Salvar alterações"
+                        onClick={() => handleCreate()}
                     />
                 </div>
             </section>
-            
+
             <Footer />
         </Container>
     );

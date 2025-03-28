@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import {BREAK_POINTS} from "./breakPoints.js"
+import { BREAK_POINTS } from "./breakPoints.js";
 
 export default createGlobalStyle`
 
@@ -18,13 +18,13 @@ export default createGlobalStyle`
     }
 
     body {
-        background-color: ${({theme}) => theme.COLORS.Dark[100]};
+        background-color: ${({ theme }) => theme.COLORS.Dark[100]};
         font-family: "Poppins", serif;
         -webkit-font-smoothing: antialiased;
     }
 
     svg, button, input, textarea {
-      color: ${({theme}) => theme.COLORS.Light[100]};
+      color: ${({ theme }) => theme.COLORS.Light[100]};
     }
 
     a {
@@ -64,4 +64,4 @@ export default createGlobalStyle`
       border-radius: 10px;
     }
 
-`
+`;
