@@ -43,6 +43,12 @@ export function SignUp() {
             return;
         }
 
+        if(role !== "customer" && role !== "admin") {
+            setMessageError("São permitidas entradas apenas de admin e customer")
+            setIsModalOpen(true)
+            return
+        }
+
         const result = await create({ name, email, password, role });
 
         if (result.success) {
@@ -97,10 +103,10 @@ export function SignUp() {
                 />
 
                 <Input
-                    title="Admin/customer"
+                    title="Admin/Customer"
                     placeholder="Escolha como irá se cadastrar"
-                    type="text"
-                    onChange={(e) => setRole(e.target.value)}
+                    type="text" 
+                    onChange={(e) => setRole(e.target.value.toLowerCase())}
                 />
 
                 <Button
